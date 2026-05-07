@@ -58,7 +58,7 @@ BasketBooks.belongsTo(Basket)
 BasketBooks.hasOne(Book)
 Book.belongsTo(BasketBooks)
 
-Book.hasMany(BookInfo)
+Book.hasMany(BookInfo, {as: 'info'})
 BookInfo.belongsTo(Book)
 
 Book.hasMany(Rating)
