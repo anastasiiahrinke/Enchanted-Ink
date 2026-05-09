@@ -45,11 +45,8 @@ class userController {
   }
 
   async check(req, res, next) {
-    const { id } = req.query;
-    if (!id) {
-      return next(ApiError.badRequest("ID not specified"));
-    }
-    res.json(id);
+    const token = generateJwt(req.user.id, req.user.email, req.user.role);
+    return res.json(token)
   }
 }
 
