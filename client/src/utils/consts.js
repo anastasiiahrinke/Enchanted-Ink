@@ -1,0 +1,5 @@
+const ADMIN_ROUTE = '/admin'
+const AUTH_ROUTE = '/auth'
+const BASKET_ROUTE = '/basket'
+const SHOP_ROUTE = '/'
+const BOOK_ROUTE = '/book'
