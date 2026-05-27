@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Auth = () => {
+const Basket = () => {
     return (
         <div>
             Basket
@@ -8,4 +8,4 @@ const Auth = () => {
     )
 }
 
-export default Auth
+export default Basket

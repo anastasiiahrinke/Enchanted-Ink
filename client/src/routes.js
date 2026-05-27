@@ -1,8 +1,8 @@
 import Admin from './pages/Admin'
-import Basket from './pages/Admin'
-import Shop from './pages/Admin'
-import BookPage from './pages/Admin'
-import Auth from './pages/Admin'
+import Basket from './pages/Basket'
+import Shop from './pages/Shop'
+import BookPage from './pages/BookPage'
+import Auth from './pages/Auth'
 
 import {ADMIN_ROUTE, BASKET_ROUTE, SHOP_ROUTE, REGISTRATION_ROUTE, LOGIN_ROUTE, BOOK_ROUTE} from "./utils/consts"
 
@@ -31,7 +31,7 @@ export const publicRoutes = [
         Component: Auth
     },
     {
-        path: BOOK_ROUTE,
-        Component: BookPage + '/:id'
+        path: BOOK_ROUTE  + '/:id',
+        Component: BookPage
     }
 ]

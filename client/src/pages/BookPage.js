@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Auth = () => {
+const BookPage = () => {
     return (
         <div>
-            Basket
+            BookPage
         </div>
     )
 }
 
-export default Auth
+export default BookPage
