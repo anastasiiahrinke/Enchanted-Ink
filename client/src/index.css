@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap");
+
+:root {
+  --font-ui: "Tenor Sans", sans-serif;
+  --font-display: "Cormorant", serif;
+  --font-body: "Libre Baskerville", serif;
+
+  /* ── Palette ── */
+  --color-snow: #fffbff;
+  --color-almond: #f1dabf;
+  --color-taupe: #92817a;
+  --color-coffee: #362417;
+  --color-mid: #5a3d2b;
+  --color-black: #000500;
+
+  /* ── Accent ── */
+  --color-crimson: #561c24;
+  --color-bordeaux: #6d2932;
+  --color-espresso: #1e1209;
+  --color-umber: #7a5c4a;
+}
+* {
+  background-color: var(--color-espresso);
+}
+.navbar {
+  padding: 18px 40px;
+}
+
+.navbar-brand.active {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 8px;
+  color: #bdb299 !important;
+  text-decoration: none;
+}
+
+.nav-link,
+.navbar a {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: var(--color-taupe);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-link:hover,
+.navbar a:hover {
+  color: var(--color-almond);
+}
+
+.nav-link:focus,
+.nav-link:active,
+.nav-link:focus-visible {
+  color: var(--color-snow) !important;
+}
+
+.btn-signin {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--color-coffee);
+  background-color: var(--color-almond);
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--color-coffee);
+  border-radius: 3%;
+}
+
+.btn-signin:hover,
+.btn-signin:active {
+  background: #b8a38a !important;
+  color: #ffffff !important;
+  border: 1px solid var(--color-coffee) !important;
+}
