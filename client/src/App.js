@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Layout = () => {
     const location = useLocation()
-    const hideNavbar = ['/auth'].includes(location.pathname)
+    const hideNavbar = ['/auth', '/registration'].includes(location.pathname)
 
     return (
         <>

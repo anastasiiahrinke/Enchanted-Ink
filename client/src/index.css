@@ -202,6 +202,7 @@ body {
     transition: color 0.3s ease;
     border-bottom: 1.5px solid transparent;
     margin-bottom: -0.5px;
+    text-decoration: none;
 }
 
 .auth-tab:hover { color: var(--color-almond); }
@@ -369,3 +370,4 @@ body {
     border-color: var(--color-almond);
     color: var(--color-almond);
 }
+

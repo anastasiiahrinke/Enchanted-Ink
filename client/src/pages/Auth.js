@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { REGISTRATION_ROUTE, LOGIN_ROUTE } from "../utils/consts";
 
 const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
-
+  
+  const location = useLocation();
+  const isLogin = location.pathname === LOGIN_ROUTE;
+  console.log(location)
   return (
     <div className="auth-page">
       <div className="auth-left">
@@ -33,19 +36,19 @@ const Auth = () => {
         </NavLink>
 
         <div className="auth-tabs d-flex gap-4 mb-4">
-          <span
-            className={`auth-tab ${isLogin ? "auth-tab--active" : ""}`}
-            onClick={() => setIsLogin(true)}
-          >
-            SIGN IN
-          </span>
-          <span
-            className={`auth-tab ${!isLogin ? "auth-tab--active" : ""}`}
-            onClick={() => setIsLogin(false)}
-          >
-            CREATE ACCOUNT
-          </span>
-        </div>
+    <NavLink 
+        to={LOGIN_ROUTE} 
+        className={`auth-tab ${isLogin ? "auth-tab--active" : ""}`}
+    >
+        SIGN IN
+    </NavLink>
+    <NavLink 
+        to={REGISTRATION_ROUTE} 
+        className={`auth-tab ${!isLogin ? "auth-tab--active" : ""}`}
+    >
+        CREATE ACCOUNT
+    </NavLink>
+</div>
 
         <div className="auth-heading mb-4">
           <h2>{isLogin ? "Welcome" : "Create your"}</h2>
