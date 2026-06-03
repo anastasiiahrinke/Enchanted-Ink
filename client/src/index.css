@@ -212,7 +212,6 @@ body {
     border-bottom: 1.5px solid var(--color-almond);
 }
 
-/* ── Інпути ── */
 .auth-label {
     font-family: var(--font-ui);
     font-size: 0.65rem;
@@ -315,12 +314,12 @@ body {
     transition: background-color 0.3s ease, transform 0.15s ease;
 }
 
-.btn-signin:hover {
+.btn-signin-auth:hover {
     background-color: #d9c4a3;
     transform: translateY(-1px);
 }
 
-.btn-signin:active {
+.btn-signin-auth:active {
     transform: translateY(0);
     background-color: #c8b393;
 }
