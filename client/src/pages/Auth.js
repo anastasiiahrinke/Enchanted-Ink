@@ -5,7 +5,7 @@ import { REGISTRATION_ROUTE, LOGIN_ROUTE } from "../utils/consts";
 
 const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
-  
+
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
   console.log(location)
@@ -36,19 +36,19 @@ const Auth = () => {
         </NavLink>
 
         <div className="auth-tabs d-flex gap-4 mb-4">
-    <NavLink 
-        to={LOGIN_ROUTE} 
-        className={`auth-tab ${isLogin ? "auth-tab--active" : ""}`}
-    >
-        SIGN IN
-    </NavLink>
-    <NavLink 
-        to={REGISTRATION_ROUTE} 
-        className={`auth-tab ${!isLogin ? "auth-tab--active" : ""}`}
-    >
-        CREATE ACCOUNT
-    </NavLink>
-</div>
+          <NavLink
+            to={LOGIN_ROUTE}
+            className={`auth-tab ${isLogin ? "auth-tab--active" : ""}`}
+          >
+            SIGN IN
+          </NavLink>
+          <NavLink
+            to={REGISTRATION_ROUTE}
+            className={`auth-tab ${!isLogin ? "auth-tab--active" : ""}`}
+          >
+            CREATE ACCOUNT
+          </NavLink>
+        </div>
 
         <div className="auth-heading mb-4">
           <h2>{isLogin ? "Welcome" : "Create your"}</h2>
@@ -109,7 +109,6 @@ const Auth = () => {
           </div>
 
           <div className="d-flex gap-3">
-            {/* Google */}
             <button className="btn-social" type="button">
               <svg width="16" height="16" viewBox="0 0 24 24">
                 <path
@@ -136,7 +135,6 @@ const Auth = () => {
               GOOGLE
             </button>
 
-            {/* Facebook */}
             <button className="btn-social" type="button">
               <svg
                 width="16"
