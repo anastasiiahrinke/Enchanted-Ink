@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import { NavLink } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import { observer } from 'mobx-react-lite';
-import { LOGIN_ROUTE, MAIN_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE, MAIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
 
 const NavBar = observer(() => {
   const { user } = useContext(Context);
@@ -15,7 +15,7 @@ const NavBar = observer(() => {
       <NavLink className="navbar-brand" to={MAIN_ROUTE}>Novella</NavLink>
 
       <Nav className="position-absolute start-50 translate-middle-x d-flex gap-4">
-        <a href="#" className="nav-link">Catalogue</a>
+        <a href={SHOP_ROUTE} className="nav-link">Catalogue</a>
         <a href="#" className="nav-link">Genres</a>
         <a href="#" className="nav-link">New Arrivals</a>
         <a href="#" className="nav-link">My Library</a>
