@@ -8,6 +8,7 @@ const GenreBar = observer(() => {
 
   return (
     <div className="genre-bar-wrap">
+      
       <div className="genre-bar__heading">Genre</div>
       <ListGroup className="genre-bar">
         {book.genres.map(genre => (
