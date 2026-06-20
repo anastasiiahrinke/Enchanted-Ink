@@ -13,7 +13,7 @@ const GenreBar = observer(() => {
       <ListGroup className="genre-bar">
         {book.genres.map(genre => (
           <ListGroup.Item
-            action
+            active={genre.id == genre.selectedGenre}
             className={`genre-bar__item ${book.selectedGenre?.id === genre.id ? 'active' : ''}`}
             key={genre.id}
             onClick={() => book.setSelectedGenre(genre)}

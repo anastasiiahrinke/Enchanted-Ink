@@ -158,6 +158,8 @@ export default class BookStore {
         authorId: 5,
       },
     ];
+    this._selectedGenre = {};
+    this._selectedAuthor = {}
     makeAutoObservable(this);
   }
   setAuthors(authors) {
@@ -169,6 +171,12 @@ export default class BookStore {
   setBooks(books) {
     this._books = books;
   }
+  setSelectedGenre(genre) {
+    this._selectedGenre = genre;
+  }
+  setSelectedAuthor(author) {
+    this._selectedAuthor = author;
+  }
   get authors() {
     return this._authors;
   }
@@ -177,5 +185,11 @@ export default class BookStore {
   }
   get books() {
     return this._books;
+  }
+  get selectedGenre() {
+    return this._selectedGenre;
+  }
+  get selectedAuthor() {
+    return this._selectedAuthor
   }
 }

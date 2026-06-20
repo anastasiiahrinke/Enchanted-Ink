@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import StarField from '../components/StarField'
 import { NavLink } from 'react-router-dom'
 import { SHOP_ROUTE } from '../utils/consts'
+import Marquee from '../components/Marquee'
 
 
 const heroStats = [
@@ -65,6 +66,7 @@ const QuoteRotator = () => {
 
 const Main = () => {
     return (
+        <>
         <div className="hero">
             <section className="hero-left">
                 <div className="hero-issue">
@@ -108,6 +110,12 @@ const Main = () => {
                 <QuoteRotator/>
            
         </div>
+        <div>
+            <Marquee/>
+
+        </div>
+        
+        </>
     )
 }
 

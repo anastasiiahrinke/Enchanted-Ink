@@ -19,6 +19,13 @@
   --color-espresso: #1a0f0a;
   --color-umber: #7a5c4a;
 
+  --bf-snow:    #FFFBFF;
+  --bf-almond:  #F1DABF;
+  --bf-taupe:   #92817A;
+  --bf-coffee:  #362417;
+  --bf-black:   #000500;
+  --bf-dim:     rgba(241,218,191,0.12);
+
   --grad-left-bg: radial-gradient(
       ellipse 120% 60% at 100% 0%,
       rgba(90, 61, 43, 0.35) 0%,
@@ -37,6 +44,8 @@
       transparent 65%
     ),
     linear-gradient(180deg, #020300 0%, #000500 50%, #010200 100%);
+
+
 }
 
 body {
@@ -51,7 +60,7 @@ body {
   position: sticky !important;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(10, 4, 0, 0.95) 0%, rgba(0, 0, 0, 0.16) 100%);
+    padding: 2rem;
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(122, 92, 74, 0.18);
 }
@@ -892,19 +901,19 @@ body {
 
 .sb-search {
   position: relative;
-  margin-bottom: clamp(1rem, 2vw, 1.75rem);
-  padding: 0 clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1rem, 1vw, 1.75rem);
+  padding: 1rem clamp(0.3rem, 2vw, 1rem);
 }
 
 .sb-search input {
   width: 100%;
   min-width: 0;
-  background: var(--color-black);
-  border: none;
+    background: #16130f;
+    border: 1px #776759 solid;
   appearance: none;
   -webkit-appearance: none;
   box-shadow: none;
-  padding: 0.95rem 1rem 0.95rem 2.6rem;
+  padding: 0.95rem 0.6rem 0.95rem 2.6rem;
   color: var(--color-almond);
   font-family: var(--font-ui);
   font-size: clamp(0.78rem, 0.8vw, 0.95rem);
@@ -919,16 +928,6 @@ body {
 .sb-search input:focus {
   box-shadow: 0 0 0 3px rgba(241, 218, 191, 0.06);
   transform: translateY(-1px);
-}
-
-.sb-search-icon {
-  position: absolute;
-  left: calc(clamp(1rem, 2vw, 1.5rem) + 1rem);
-  top: 58%;
-  transform: translateY(-50%);
-  color: var(--color-taupe);
-  font-size: 1.2rem;
-  pointer-events: none;
 }
 
 .genre-bar-wrap {
@@ -982,7 +981,7 @@ body {
 }
 
 .genre-bar__item:hover {
-  background: rgba(241, 218, 191, 0.05) !important;
+  background-color: #5a393221 !important;
   color: rgba(241, 218, 191, 0.85) !important;
   transform: translateX(2px);
 }
@@ -992,7 +991,8 @@ body {
 }
 
 .genre-bar__item.active {
-  background: rgba(241, 218, 191, 0.08) !important;
+  background-color: #492c233a !important;
+
   color: var(--color-almond) !important;
 }
 
@@ -1003,7 +1003,8 @@ body {
 .genre-bar__heading {
   font-family: var(--font-ui);
   font-size: clamp(0.78rem, 0.9vw, 1rem);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.5em;
+  font-weight: 600;
   text-transform: uppercase;
   color: var(--color-taupe);
   padding: 1rem ;
@@ -1150,4 +1151,116 @@ body {
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+.shop-main {
+  padding: 2rem
+}
+
+.shop_button {
+    background: #16130f;
+    border: 1px #85786d solid;
+    color: var(--color-almond);
+    font-family: var(--font-ui);
+    letter-spacing: 3px;
+    padding: 0.5rem 1.3rem;
+    margin: 0.5rem;
+}
+
+.shop_button--active {
+  background-color: var(--color-almond);
+  background: #352d23;
+    border: 1px #aa9786 solid;
+
+}
+
+.bookitem_col { margin-bottom: 2px; }
+ 
+.bookitem_card {
+  background: var(--bf-black);
+  border: 1px solid var(--bf-dim);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.35s, border-color 0.35s;
+  font-family: 'Tenor Sans', sans-serif;
+}
+.bookitem_card:hover { background: rgba(54,36,23,0.25); border-color: rgba(241,218,191,0.25); }
+ 
+/* ─── обкладинка ─── */
+.bookitem_cover {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 10px 0 24px rgba(0,0,0,0.45),
+    inset -3px 0 8px rgba(255,255,255,0.04),
+    inset 0 0 0 1px rgba(0,0,0,0.3);
+}
+ 
+/* "корінець" книги зліва */
+.bookitem_cover::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 12px;
+  background: linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.05));
+  z-index: 3;
+}
+/* легке віньєтування для глибини */
+.bookitem_cover::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(0,0,0,0.45) 100%);
+}
+ 
+/* тканинна текстура */
+.bookitem_pattern {
+  position: absolute; inset: 0; opacity: 0.07; z-index: 1;
+  background-image:
+    repeating-linear-gradient(0deg, var(--bf-almond) 0, var(--bf-almond) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, var(--bf-almond) 0, var(--bf-almond) 1px, transparent 1px, transparent 3px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+}
+ 
+/* ─── вміст обкладинки ─── */
+.bookitem_content {
+  text-align: center; padding: 0 28px; z-index: 4; position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  transition: transform 0.45s cubic-bezier(.25,.8,.25,1);
+}
+.bookitem_card:hover .bookitem_content { transform: scale(1.03); }
+ 
+.bookitem-icon { color: rgba(241,218,191,0.45); display: inline-flex; }
+.bookitem-icon--lg { width: 44px; height: 44px; }
+ 
+.bookitem-genre-tag {
+  font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(241,218,191,0.4);
+}
+.bookitem-rule { width: 28px; height: 1px; background: rgba(241,218,191,0.3); }
+ 
+.bookitem-title-cover {
+  font-family: 'Cormorant', serif; font-size: 1.25rem; font-weight: 600;
+  color: rgba(255,251,255,0.92); line-height: 1.28;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.bookitem-author-cover {
+  font-family: 'Libre Baskerville', serif; font-size: 0.76rem; font-style: italic;
+  color: rgba(241,218,191,0.5);
+}
+ 
+/* ─── колірні теми за жанром (genreIcons.jsx → getGenreTheme) ─── */
+.bf-c1 { background: linear-gradient(160deg, #3d1014 0%, #150508 100%); } /* horror */
+.bf-c2 { background: linear-gradient(160deg, #1a0e08 0%, #060200 100%); } /* mystery */
+.bf-c3 { background: linear-gradient(160deg, #4a1d22 0%, #1a0a0d 100%); } /* romance */
+.bf-c4 { background: linear-gradient(160deg, #5c3d28 0%, #1e1008 100%); } /* default */
+.bf-c5 { background: linear-gradient(160deg, #1a1a2e 0%, #080810 100%); } /* drama */
+.bf-c6 { background: linear-gradient(160deg, #2e1a3a 0%, #100a14 100%); } /* fantasy */
+.bf-c7 { background: linear-gradient(160deg, #1e3a1a 0%, #0a1208 100%); }
+.bf-c8 { background: linear-gradient(160deg, #3a2a1a 0%, #120e06 100%); } /* adventure */
+.bf-c9 { background: linear-gradient(160deg, #1a2e2e 0%, #060e0e 100%); } /* literary fiction */
+ 
+@media (max-width: 768px) {
+  .bookitem_cover { height: 220px; }
 }
