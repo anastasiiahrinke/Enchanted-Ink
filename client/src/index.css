@@ -1173,7 +1173,7 @@ body {
 
 }
 
-.bookitem_col { margin-bottom: 2px; }
+.bookitem_col { margin-bottom: 2px; display: flex; }
  
 .bookitem_card {
   background: var(--bf-black);
@@ -1182,10 +1182,13 @@ body {
   overflow: hidden;
   transition: background 0.35s, border-color 0.35s;
   font-family: 'Tenor Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin-top: 1.5rem;
 }
-.bookitem_card:hover { background: rgba(54,36,23,0.25); border-color: rgba(241,218,191,0.25); }
+/* .bookitem_card:hover { background: rgba(54,36,23,0.25); border-color: rgba(241,218,191,0.25); } */
  
-/* ─── обкладинка ─── */
 .bookitem_cover {
   height: 280px;
   position: relative;
@@ -1199,21 +1202,13 @@ body {
     inset 0 0 0 1px rgba(0,0,0,0.3);
 }
  
-/* "корінець" книги зліва */
-.bookitem_cover::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0; width: 12px;
-  background: linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.05));
-  z-index: 3;
-}
-/* легке віньєтування для глибини */
+
 .bookitem_cover::after {
   content: '';
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background: radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(0,0,0,0.45) 100%);
 }
  
-/* тканинна текстура */
 .bookitem_pattern {
   position: absolute; inset: 0; opacity: 0.07; z-index: 1;
   background-image:
@@ -1223,7 +1218,17 @@ body {
   mix-blend-mode: overlay;
 }
  
-/* ─── вміст обкладинки ─── */
+/* рамка */
+.bookitem_cover-frame {
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(241,218,191,0.22);
+  z-index: 3;
+  pointer-events: none;
+}
+
+
+
 .bookitem_content {
   text-align: center; padding: 0 28px; z-index: 4; position: relative;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -1235,6 +1240,7 @@ body {
 .bookitem-icon--lg { width: 44px; height: 44px; }
  
 .bookitem-genre-tag {
+  font-family: var(--font-ui) !important;
   font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
   color: rgba(241,218,191,0.4);
 }
@@ -1250,7 +1256,6 @@ body {
   color: rgba(241,218,191,0.5);
 }
  
-/* ─── колірні теми за жанром (genreIcons.jsx → getGenreTheme) ─── */
 .bf-c1 { background: linear-gradient(160deg, #3d1014 0%, #150508 100%); } /* horror */
 .bf-c2 { background: linear-gradient(160deg, #1a0e08 0%, #060200 100%); } /* mystery */
 .bf-c3 { background: linear-gradient(160deg, #4a1d22 0%, #1a0a0d 100%); } /* romance */
@@ -1261,6 +1266,92 @@ body {
 .bf-c8 { background: linear-gradient(160deg, #3a2a1a 0%, #120e06 100%); } /* adventure */
 .bf-c9 { background: linear-gradient(160deg, #1a2e2e 0%, #060e0e 100%); } /* literary fiction */
  
+
+.bookitem-undercover_genre {
+  font-family: var(--font-ui) !important;
+  text-transform: uppercase;
+  color: var(--color-taupe)
+}
+
+.bookitem-undercover_name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.bookitem-undercover-author {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-taupe);
+  font-style: italic;
+}
+
+.bookitem-undercover-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.bookitem-undercover-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--color-taupe);
+  color: var(--color-taupe);
+  font-size: 1.7rem;
+  width: 100%;
+  height: 36px;
+  margin-top: auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.bookitem-undercover-button:hover {
+  background-color: rgba(241, 218, 191, 0.12);
+  border-color: rgba(241, 218, 191, 0.9);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.bookitem-undercover-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bookitem-undercover-button:focus-visible {
+  outline: 2px solid rgba(241, 218, 191, 0.8);
+  outline-offset: 2px;
+}
+
+
 @media (max-width: 768px) {
   .bookitem_cover { height: 220px; }
+}
+
+.bookitem_undercover {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  color: white;
+  padding: 1rem;
+  flex: 1 1 auto;
+}
+
+.bookitem_card > div:last-child {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.bookitem-undercover_name,
+.bookitem-title-cover {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
